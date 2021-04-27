@@ -3,7 +3,7 @@
 '''
 Created on April 2021 for Programming course, EAFIT University
 
-autor: Santiago Alvarez, BSc
+author: Santiago Alvarez, BSc
 '''
 
 from sys import argv
