@@ -1,10 +1,5 @@
 #! python
 
-'''
-Created on April 2021 for Programming course, EAFIT University
-author: Santiago Alvarez, BSc
-'''
-
 #Importar las librerias de interés para el código
 
 from Bio import Entrez
@@ -25,7 +20,7 @@ def search(query:str):
     print(q,email,rm,rs)
 
     Entrez.email = email
-    handleSearch = Entrez.esearch(db="Nucleotide", retmax=rm, retstart=rs, term=query)
+    handleSearch = Entrez.esearch(db="Nucleotide", retmax=rm, retstart=rs, term=q)
     rec = Entrez.read(handleSearch)
     idlist = rec["IdList"]
     return idlist
@@ -47,7 +42,7 @@ def query_record(idr)->dict:
     mydata["source"] = record["GBSeq_source"]
     mydata["organism"] = record["GBSeq_organism"]
     mydata["taxonomy"] = record["GBSeq_taxonomy"]
-    mydata["comment"] = record["GBSeq_comment"]
+    mydata["comment"] = record["GBSeq_comment"] if "GBSeq_comment" in record else ""
     mydata["sequence"] = record["GBSeq_sequence"] if "GBSeq_sequence" in record else ""
     mydata["a"] = mydata["sequence"].count('a')
     mydata["c"] = mydata["sequence"].count('c')
@@ -101,13 +96,10 @@ def do_query(query):
 #introducción término de búsqueda y conversión a CSV separado por tabulador.
 
 if __name__ == "__main__":
-    #q="q"
-    q='all[filter] AND ((viruses[filter] OR archaea[filter] OR bacteria[filter] OR protists[filter]) AND refseq[filter] AND ("2000/01/01"[PDAT] : "2001/12/31"[PDAT]))'
-    #'all[filter] AND ((viruses[filter] OR archaea[filter] OR bacteria[filter] OR protists[filter]) AND refseq[filter] AND ("2000/01/01"[PDAT] : "2010/12/31"[PDAT]))'
-    d = do_query(q)
-    d.to_csv("test1.csv",sep='\t')
+    d = do_query("q")
+    d.to_csv("first_file.csv",sep='\t')
 
 #Fin del conteo de tiempo e impresión de tiempo total.
 
 fin = time.time()
-print("Total time ",((fin-inicio)/60),"minutos")
+print("Total time ",((fin-inicio)/60),"minutes")
