@@ -1,5 +1,6 @@
 # GBFF
 GBFF Files proccessing tools
+
  Este repositorio permite la introducción de un término de búsqueda en formato NCBI (q), además de especificar el máximo de resultados (rm), el punto de inicio (rs)
  y el e-mail requerido por Entrez para su funcionamiento.
  
