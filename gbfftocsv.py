@@ -111,7 +111,3 @@ if __name__ == "__main__":
 
 fin = time.time()
 print("Total time ",((fin-inicio)/60),"minutos")
-'''
-repositorio (git) y que se explique cómo funciona, cómo se usa, ojalá que también se pase como consulta en CLI. 
-No todo en el mismo código (o un input que me pida el "Query" mínimo 1000 registros, revisarlos).
-'''
