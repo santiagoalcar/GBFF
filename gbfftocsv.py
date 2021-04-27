@@ -1,5 +1,10 @@
 #! python
 
+'''
+Created on April 2021 for Programming course, EAFIT University
+author: Santiago Alvarez, BSc
+'''
+
 #Importar las librerias de interés para el código
 
 from Bio import Entrez
